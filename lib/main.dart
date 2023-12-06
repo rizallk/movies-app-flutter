@@ -1,3 +1,5 @@
+import 'package:cinemav_app/all_popular_movies_page.dart';
+import 'package:cinemav_app/all_top_rated_movies_page.dart';
 import 'package:cinemav_app/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -91,7 +93,7 @@ class MyApp extends StatelessWidget {
                                   TextField(
                                     controller: searchController,
                                     decoration: InputDecoration(
-                                      hintText: 'Search Movies, Genre...',
+                                      hintText: 'Search Movie, Genre...',
                                       hintStyle: TextStyle(
                                         color: Color(0xFF4F4E4E),
                                         fontFamily: 'Inter',
@@ -166,8 +168,12 @@ class MyApp extends StatelessWidget {
                                         ),
                                         TextButton(
                                           onPressed: () {
-                                            print(
-                                                'See All Top Rated Movies Pressed!');
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      AllTopRatedMoviesPage()),
+                                            );
                                           },
                                           child: Text(
                                             'See All',
@@ -231,9 +237,12 @@ class MyApp extends StatelessWidget {
                                         ),
                                         TextButton(
                                           onPressed: () {
-                                            // Tambahkan logika navigasi ke halaman "See All Popular Movies" di sini
-                                            print(
-                                                'See All Popular Movies Pressed!');
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      AllPopularMoviesPage()),
+                                            );
                                           },
                                           child: Text(
                                             'See All',

@@ -2,6 +2,8 @@
 ## By Kelompok 5
 
 Link Video Demo: 
+https://drive.google.com/drive/folders/1kCtwEeR7a2qhPxwZjz1hQDsvIyeoG7Kf?usp=sharing
+
 
 Anggota Kelompok:
 1. Golden Antonius U. A. Lamatwelu (210211060053)

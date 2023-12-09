@@ -1,7 +1,6 @@
 import 'package:cinemav_app/all_popular_movies_page.dart';
 import 'package:cinemav_app/all_top_rated_movies_page.dart';
 import 'package:cinemav_app/api_service.dart';
-import 'package:cinemav_app/movie_detail_page.dart';
 import 'package:cinemav_app/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';

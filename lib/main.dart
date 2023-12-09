@@ -1,6 +1,8 @@
 import 'package:cinemav_app/all_popular_movies_page.dart';
 import 'package:cinemav_app/all_top_rated_movies_page.dart';
 import 'package:cinemav_app/api_service.dart';
+import 'package:cinemav_app/movie_detail_page.dart';
+import 'package:cinemav_app/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'movie_model.dart';
@@ -90,32 +92,37 @@ class MyApp extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  TextField(
-                                    controller: searchController,
-                                    decoration: InputDecoration(
-                                      hintText: 'Search Movie, Genre...',
-                                      hintStyle: TextStyle(
-                                        color: Color(0xFF4F4E4E),
-                                        fontFamily: 'Inter',
-                                      ),
-                                      filled: true,
-                                      fillColor: Color(0xFF201E1E),
-                                      border: OutlineInputBorder(
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => SearchPage()),
+                                      );
+                                    },
+                                    style: TextButton.styleFrom(
+                                      backgroundColor: Color(0xFF201E1E),
+                                      shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(10.0),
-                                        borderSide:
-                                            BorderSide(color: Colors.white),
+                                        side: BorderSide(color: Colors.white),
                                       ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        borderSide:
-                                            BorderSide(color: Colors.white),
-                                      ),
-                                      contentPadding: EdgeInsets.symmetric(
+                                      padding: EdgeInsets.symmetric(
                                           vertical: 12.0, horizontal: 16.0),
-                                      prefixIcon: Icon(Icons.search,
-                                          color: Color(0xFF4F4E4E)),
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Icon(Icons.search,
+                                            color: Color(0xFF4F4E4E)),
+                                        SizedBox(width: 8.0),
+                                        Text(
+                                          'Search Movie, Genre...',
+                                          style: TextStyle(
+                                            color: Color(0xFF4F4E4E),
+                                            fontFamily: 'Inter',
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                   SizedBox(height: 16.0),

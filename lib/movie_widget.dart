@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'app_constant.dart';
 import 'movie_model.dart';
+import 'movie_detail_screen.dart';
 
 class MovieWidget extends StatelessWidget {
   final Movie movie;
@@ -14,18 +15,28 @@ class MovieWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     double aspectRatio = isPotrait ? 9 / 16 : 16 / 9;
 
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(8.0),
-        child: Image.network(
-          '${AppConstant.imageUrlW500}${movie.posterPath}',
-          height: imageHeight,
-          width: imageHeight *
-              aspectRatio, // Sesuaikan lebar gambar sesuai keinginan Anda
-          fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MovieDetailScreen(movie: movie),
+          ),
+        );
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(8.0),
+          child: Image.network(
+            '${AppConstant.imageUrlW500}${movie.posterPath}',
+            height: imageHeight,
+            width: imageHeight *
+                aspectRatio, // Sesuaikan lebar gambar sesuai keinginan Anda
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     );

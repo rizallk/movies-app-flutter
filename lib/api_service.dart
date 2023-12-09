@@ -49,4 +49,18 @@ class ApiService {
       throw Exception('Failed to load popular movies: $error');
     }
   }
+
+  Future<Map<String, dynamic>> getMovieById(int movieId) async {
+    try {
+      final response = await _dio.get('/movie/$movieId');
+
+      if (response.statusCode == 200) {
+        return json.decode(response.toString());
+      } else {
+        throw Exception('Failed to load movie');
+      }
+    } catch (error) {
+      throw Exception('Failed to load movie: $error');
+    }
+  }
 }

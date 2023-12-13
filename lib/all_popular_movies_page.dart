@@ -2,6 +2,7 @@ import 'package:cinemav_app/all_top_rated_movies_page.dart';
 import 'package:flutter/material.dart';
 import 'api_service.dart';
 import 'movie_model.dart';
+import 'movie_detail_page.dart';
 
 class AllPopularMoviesPage extends StatefulWidget {
   @override

@@ -2,6 +2,8 @@ import 'package:cinemav_app/app_constant.dart';
 import 'package:flutter/material.dart';
 import 'api_service.dart';
 import 'movie_model.dart';
+import 'movie_detail_page.dart';
+// some changes
 
 class AllTopRatedMoviesPage extends StatefulWidget {
   @override
@@ -74,21 +76,31 @@ class MovieGridItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(6.0),
-                border: Border.all(
-                  color: Color(0xFF4F4E4E),
-                  width: 1.0,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MovieDetailPage(movie: movie),
+                  ),
+                );
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(6.0),
+                  border: Border.all(
+                    color: Color(0xFF4F4E4E),
+                    width: 1.0,
+                  ),
                 ),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(6.0),
-                child: Image.network(
-                  '${AppConstant.imageUrlW500}${movie.posterPath}',
-                  height: 100.0,
-                  width: 80.0,
-                  fit: BoxFit.cover,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(6.0),
+                  child: Image.network(
+                    '${AppConstant.imageUrlW500}${movie.posterPath}',
+                    height: 100.0,
+                    width: 80.0,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),

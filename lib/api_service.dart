@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'app_constant.dart';
+import 'movie_search_result.dart';
 
 class ApiService {
   final Dio _dio = Dio(BaseOptions(
@@ -50,7 +51,7 @@ class ApiService {
     }
   }
 
-  Future<Map<String, dynamic>> getMovieById(int movieId) async {
+  Future<Map<String, dynamic>> getMovieById(String movieId) async {
     try {
       final response = await _dio.get('/movie/$movieId');
 
@@ -61,6 +62,23 @@ class ApiService {
       }
     } catch (error) {
       throw Exception('Failed to load movie: $error');
+    }
+  }
+
+  Future<MovieSearchResult> searchMovie(String query) async {
+    try {
+      final response = await _dio.get('/search/movie?query=$query');
+
+      print('Response data: ${response.data}');
+      print('Response code: ${response.statusCode == 200}');
+
+      if (response.statusCode == 200) {
+        return MovieSearchResult.fromJson(response.data);
+      } else {
+        throw Exception('Failed to search movie');
+      }
+    } catch (error) {
+      throw Exception('Failed to search movie: $error');
     }
   }
 }

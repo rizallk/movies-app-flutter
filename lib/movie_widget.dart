@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'app_constant.dart';
 import 'movie_model.dart';
-import 'movie_detail_screen.dart';
+import 'movie_detail_page.dart';
 
 class MovieWidget extends StatelessWidget {
   final Movie movie;
@@ -20,7 +20,7 @@ class MovieWidget extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => MovieDetailScreen(movie: movie),
+            builder: (context) => MovieDetailPage(movie: movie),
           ),
         );
       },

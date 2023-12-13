@@ -1,12 +1,12 @@
 class Movie {
   final int id;
-  final int duration;
+  final int? duration;
   final double rating;
   final String title;
   final String overview;
   final String posterPath;
   final String releaseDate;
-  final List genres;
+  final List? genres;
 
   Movie(
       {required this.id,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'api_service.dart';
 import 'movie_model.dart';
 import 'movie_detail_page.dart';
+// some changes
 
 class AllTopRatedMoviesPage extends StatefulWidget {
   @override
